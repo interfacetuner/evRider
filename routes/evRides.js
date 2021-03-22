@@ -10,7 +10,8 @@ router.get('/', evRidesCtrl.index);
 router.get('/oneWheel', evRidesCtrl.oneWheel);
 router.get('/boosted', evRidesCtrl.boosted);
 router.get('/segway', evRidesCtrl.segway);
-router.get('/vanmoof', evRidesCtrl.vanmoof)
+router.get('/vanmoof', evRidesCtrl.vanmoof);
+router.get('/ktm', evRidesCtrl.ktm);
 
 
 

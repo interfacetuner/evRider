@@ -43,6 +43,10 @@ function vanmoof(req, res) {
   res.render('evRides/vanmoof');
 }
 
+function ktm(req, res) {
+  res.render('evRides/ktm');
+}
+
 module.exports = {
   new: newEvRide,
   create,
@@ -51,4 +55,5 @@ module.exports = {
   boosted,
   segway,
   vanmoof,
+  ktm,
 };
