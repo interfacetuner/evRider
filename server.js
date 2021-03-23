@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const port = 3000;
 const indexRouter = require('./routes/index');
 const evRidesRouter = require('./routes/evRides');
+const reviewsRouter = require('./routes/reviews');
 
 // Set up express app
 const app = express();
@@ -26,7 +27,7 @@ app.use(express.urlencoded({
 // Mount routes with app.use() middle ware routes
 app.use('/', indexRouter);
 app.use('/evRides', evRidesRouter);
-// app.use('/', reviewsRouter);
+app.use('/', reviewsRouter);
 
 // Tell App to listen
 app.listen(port, function () {

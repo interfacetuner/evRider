@@ -1,11 +1,23 @@
-<%- include('../partials/header') %>
-<link rel='stylesheet' href='/stylesheets/style.css' />
+<%- include('../partials/header'); %>
+
+<section id="show-page">
+  <div>Title: </div>
+  <div></div>
+  <div>Name:</div>
+  <div></div>
+  <div>Reviews: </div>
+  <div></div>
+  <div>Ratings: </div>
+  <div></div>
+</section>
+
+
 
 
 <h2>Add a Review!</h2>
 
 <form id="add-review-form" method="POST"
- action="/evRides/reviews">
+ action="/evRides/show">
  <label>Review:</label>
  <textarea name="content"></textarea>
  <label>Rating:</label>
@@ -21,4 +33,4 @@
 
 
   
-<%- include('../partials/footer') %>
+<%- include('../partials/footer'); %>

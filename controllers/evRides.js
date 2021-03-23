@@ -12,14 +12,14 @@ function create(req, res) {
   }
 
   EvRide.create(req.body, function (err, evRide) {
-    if (err) return res.render('evRides/show');
+    if (err) return res.render('/evRides/show');
     res.redirect('/evRides');
   });
 }
 
 
 function index(req, res) {
-  EvRide.find({}, function (err, evRides) {
+  EvRide.findOne({}, function (err, evRides) {
     console.log(evRides);
     res.render('evRides/index', {
       evRides
