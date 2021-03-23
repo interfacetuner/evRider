@@ -10,7 +10,7 @@
 <body>
     <h1>EV</h1>
     <a href="/"><h3>Go Back Home</h3></a>
-    <a href="/evRides/new"><h3>Add a new review</h3></a>
+    <a href="/evRides/show"><h3>Add a new review</h3></a>
 
     <table>
         <thead>
@@ -20,8 +20,8 @@
           <tbody>
             <% evRides.forEach(evRide => { %>
                 <tr>
-                    <td><%= evRide.evRide %></td>
-                    <td><%= evRide.vote %></td>
+                    <td><%= evRide.name %></td>
+                    <td><%= evRide.rating %></td>
                     
                 </tr>
             <% }) %>

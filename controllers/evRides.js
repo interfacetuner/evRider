@@ -1,7 +1,7 @@
 const EvRide = require('../models/evRide');
 
 function newEvRide(req, res) {
-  res.render('evRides/new');
+  res.render('evRides/show');
 }
 
 
@@ -11,8 +11,8 @@ function create(req, res) {
     if (req.body[key] === '') delete req.body[key];
   }
 
-  EvRide.create(req.body, function (err, flight) {
-    if (err) return res.render('evRides/new');
+  EvRide.create(req.body, function (err, evRide) {
+    if (err) return res.render('evRides/show');
     res.redirect('/evRides');
   });
 }
@@ -47,6 +47,23 @@ function ktm(req, res) {
   res.render('evRides/ktm');
 }
 
+function gotrax(req, res) {
+  res.render('evRides/gotrax');
+}
+
+// function show(req, res) {
+//   res.render('evRides/show');
+// }
+
+function show(req, res) {
+  EvRide.find(req.params.id, function (err, evRide) {
+    res.render('evRides/show', {
+      title: 'EvRide Detail',
+      evRide
+    });
+  });
+}
+
 module.exports = {
   new: newEvRide,
   create,
@@ -56,4 +73,6 @@ module.exports = {
   segway,
   vanmoof,
   ktm,
+  gotrax,
+  show,
 };

@@ -1,29 +1,35 @@
 const mongoose = require('mongoose');
-// optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 
-
+const reviewSchema = new Schema({
+  content: String,
+  rating: {
+    type: Number,
+    min: 1,
+    max: 5,
+    default: 5
+  }
+}, {
+  timestamps: true
+});
 
 const evRideSchema = new Schema({
-    review: {
-      type: String,
-    },
-    //   flightNumber: {
-    //     type: Number,
-    //     min: 1,
-    //     max: 9999
-    //   },
-    //   departTime: {
-    //     type: Date,
-    //     default: function () {
-    //       let date = new Date();
-    //       return date.setFullYear(date.getFullYear() + 1);
-    //     },
+  title: {
+    type: String,
+    required: true
+  },
+  name: {
+    type: String,
+    default: function () {
+      return new Date().getFullYear();
+    }
+  },
 
+  reviews: [reviewSchema],
+}, {
+  timestamps: true
+});
 
-  }
-
-);
 
 
 module.exports = mongoose.model('EvRide', evRideSchema);

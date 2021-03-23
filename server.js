@@ -26,7 +26,7 @@ app.use(express.urlencoded({
 // Mount routes with app.use() middle ware routes
 app.use('/', indexRouter);
 app.use('/evRides', evRidesRouter);
-
+// app.use('/', reviewsRouter);
 
 // Tell App to listen
 app.listen(port, function () {
