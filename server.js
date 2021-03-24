@@ -1,4 +1,5 @@
-const express = require('express');
+const express = require('express'),
+  evRide = require('./routes/evRides');
 const morgan = require('morgan');
 const port = 3000;
 const indexRouter = require('./routes/index');
@@ -10,6 +11,9 @@ const app = express();
 
 // Connect to DB----step one
 require('./config/database');
+
+// const evRide = require('/routes/evRides');
+
 
 
 
@@ -28,6 +32,8 @@ app.use(express.urlencoded({
 app.use('/', indexRouter);
 app.use('/evRides', evRidesRouter);
 app.use('/', reviewsRouter);
+// app.get('/', reviewsRouter);
+
 
 // Tell App to listen
 app.listen(port, function () {

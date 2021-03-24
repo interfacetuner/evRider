@@ -1,4 +1,4 @@
-const EvRide = require('../models/evRide');
+const Review = require('../models/review');
 
 function newEvRide(req, res) {
   res.render('evRides/show');
@@ -11,19 +11,41 @@ function create(req, res) {
     if (req.body[key] === '') delete req.body[key];
   }
 
-  EvRide.create(req.body, function (err, evRide) {
-    if (err) return res.render('/evRides/show');
-    res.redirect('/evRides');
+  Review.create(req.body, function (err, evRide) {
+    if (err) {
+      console.log(err);
+      return res.render('/evRides/show');
+    }
+    res.redirect('/evRides/show');
   });
 }
 
 
 function index(req, res) {
-  EvRide.findOne({}, function (err, evRides) {
+  Review.findOne({}, function (err, evRides) {
     console.log(evRides);
     res.render('evRides/index', {
       evRides
     })
+  });
+}
+
+function show(req, res) {
+  console.log('We are here');
+  Review.find(req.params.id, function (err, evRide) {
+    res.render('evRides/show', {
+      title: 'EvRide Detail',
+      evRide
+    });
+  });
+}
+
+function review(req, res) {
+  Review.find(req.params.id, function (err, reviews) {
+    res.render('reviews/show', {
+      title: 'Reviews-Page',
+      review
+    });
   });
 }
 
@@ -32,6 +54,7 @@ function oneWheel(req, res) {
 }
 
 function boosted(req, res) {
+  console.log('here');
   res.render('evRides/boosted');
 }
 
@@ -55,14 +78,7 @@ function gotrax(req, res) {
 //   res.render('evRides/show');
 // }
 
-function show(req, res) {
-  EvRide.find(req.params.id, function (err, evRide) {
-    res.render('evRides/show', {
-      title: 'EvRide Detail',
-      evRide
-    });
-  });
-}
+
 
 module.exports = {
   new: newEvRide,
@@ -75,4 +91,5 @@ module.exports = {
   ktm,
   gotrax,
   show,
+  review,
 };

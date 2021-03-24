@@ -1,10 +1,10 @@
-const EvRide = require('../models/evRide');
+const Review = require('../models/review');
 
 function create(req, res) {
-  EvRide.findById(req.params.id, function (err, evRide) {
+  Review.findById(req.params.id, function (err, evRide) {
     evRide.reviews.push(req.body);
     evRide.save(function (err) {
-      res.redirect(`/evRide/${evRide._id}`);
+      res.redirect(`/evRides/${evRide._id}`);
     });
   });
 }
