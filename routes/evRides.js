@@ -5,7 +5,6 @@ const evRidesCtrl = require('../controllers/evRides');
 
 router.get('/', evRidesCtrl.index);
 router.get('/show', evRidesCtrl.show);
-// router.get('/:id', evRidesCtrl.show);
 router.post('/', evRidesCtrl.create);
 router.get('/oneWheel', evRidesCtrl.oneWheel);
 router.get('/boosted', evRidesCtrl.boosted);

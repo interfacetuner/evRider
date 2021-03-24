@@ -34,7 +34,7 @@ function show(req, res) {
   console.log('We are here');
   Review.find(req.params.id, function (err, evRide) {
     res.render('evRides/show', {
-      title: 'EvRide Detail',
+      title: 'EvRider Review',
       evRide
     });
   });
