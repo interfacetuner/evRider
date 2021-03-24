@@ -1,9 +1,17 @@
-const Review = require('../models/review');
+const EvRide = require('../models/ride');
+
+function index(req, res) {
+  EvRide.find({}, function (err, evRides) {
+    res.render('evRides/index', {
+      evRides
+    });
+    console.log(evRides);
+  });
+}
 
 function newEvRide(req, res) {
   res.render('evRides/show');
 }
-
 
 function create(req, res) {
   //sanitize data
@@ -11,7 +19,7 @@ function create(req, res) {
     if (req.body[key] === '') delete req.body[key];
   }
 
-  Review.create(req.body, function (err, evRide) {
+  EvRide.create(req.body, function (err, evRide) {
     if (err) {
       console.log(err);
       return res.render('/evRides/show');
@@ -20,19 +28,9 @@ function create(req, res) {
   });
 }
 
-
-function index(req, res) {
-  Review.findOne({}, function (err, evRides) {
-    console.log(evRides);
-    res.render('evRides/index', {
-      evRides
-    })
-  });
-}
-
 function show(req, res) {
   console.log('We are here');
-  Review.find(req.params.id, function (err, evRide) {
+  EvRide.find(req.params.id, function (err, evRide) {
     res.render('evRides/show', {
       title: 'EvRider Review',
       evRide
@@ -41,7 +39,7 @@ function show(req, res) {
 }
 
 function review(req, res) {
-  Review.find(req.params.id, function (err, reviews) {
+  EvRide.find(req.params.id, function (err, reviews) {
     res.render('reviews/show', {
       title: 'Reviews-Page',
       review

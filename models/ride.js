@@ -30,4 +30,4 @@ const rideSchema = new Schema({
 
 
 
-module.exports = mongoose.model('Ride', rideSchema);
+module.exports = mongoose.model('EvRide', rideSchema);

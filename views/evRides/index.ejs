@@ -14,17 +14,19 @@
 
     <table>
         <thead>
-            <th>Review Product</th>
-            
+          <tr>
+            <th>Make</th>
+            <th>Model</th>
+            </tr>
         </thead>
           <tbody>
-            <% evRides.forEach(evRide => { %>
+            <% evRides.forEach((evRide) => { %>
                 <tr>
-                    <td><%= evRide.name %></td>
-                    <td><%= evRide.rating %></td>
+                    <td><%= evRide.make %></td>
+                    <td><%= evRide.model %></td>
                     
                 </tr>
-            <% }) %>
+            <% }); %>
         </tbody>
     </table>
 </body>
